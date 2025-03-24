@@ -20,6 +20,9 @@ ENV/
 *.code-workspace
 .vscode/
 
+#internal scripts
+scripts/
+
 # Unit test / coverage reports
 htmlcov/
 .tox/
