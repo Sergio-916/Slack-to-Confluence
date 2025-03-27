@@ -22,6 +22,7 @@ ENV/
 
 #internal scripts
 scripts/
+data/
 
 # Unit test / coverage reports
 htmlcov/

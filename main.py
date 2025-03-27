@@ -6,13 +6,23 @@ from config import config
 from state.state_manager import StateManager
 from ai.chat_analyzer import ChatAnalyzer
 
+import sys
+import os
+
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from config.logging import get_logger, setup_logging
+
+setup_logging()
+logger = get_logger(__name__)
 
 state_manager = StateManager()
 slack_client = SlackClient(config.SLACK_TOKEN)
 confluence_client = ConfluenceClient(
     config.CONFLUENCE_URL, config.CONFLUENCE_USERNAME, config.CONFLUENCE_API_TOKEN
 )
+
 analyzer = ChatAnalyzer(config.MODEL)
+
 formatter = SlackToConfluenceFormatter()
 
 syncer = SlackConfluenceSync(

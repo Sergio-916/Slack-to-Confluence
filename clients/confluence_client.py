@@ -51,7 +51,7 @@ class ConfluenceClient:
                 )
 
             if response.status_code in [204, 200]:
-                print(f"✅ Page '{page_id}' deleted!")
+                print(f"✅ Page id '{page_id}' deleted!")
 
             elif response.status_code == 404:
                 print(f"Page '{page_id}' already deleted or doesn't exist")
