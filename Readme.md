@@ -1,6 +1,6 @@
    ## Program overview: ##
    This program parses selected Slack channels, processes threads using an LLM as separate documents, formats them as Confluence documents, and stores them in Confluence in selected space as draft pages.
-   Every night, the program checks for any changes in the assigned Slack channels; if changes are detected in any of the threads, the program regenerates and replaces the relevant pages in Confluence.
+   The program can be scheduled to automatically check for changes in the assigned Slack channels at configurable intervals (daily by default); if changes are detected in any of the threads, the program regenerates and replaces the relevant pages in Confluence.
 
 ## Prerequisites: ##
 1. Create or select the necessary Slack channels that need to be processed.
@@ -33,6 +33,14 @@
    CONFLUENCE_SPACE_KEY=""
    OPENAI_API_KEY=""
    ```
+
+6. Configure scheduling options in `config.py` (optional):
+   ```
+   SCHEDULE_TIME = "10:00"  # Run time in HH:MM format
+   SCHEDULE_INTERVAL = "day"  # Interval: "day", "hour", "minute", "second"
+   SCHEDULE_UNIT = 1  # Number of interval units (e.g., every 1 day or every 2 hours)
+   ```
+
 ## Features: ##
 1. Process threads as separate documents.
 2. Format documents as Confluence documents based on html format supporting links, bold, italic, underline, and tables.
@@ -47,4 +55,20 @@
 11. Image files store in the `data/images` folder.
 12. it is possible to disconnect image processing from the main logic.
 13. if document is deleted in Confluence, the program will regenerate the docunent based on Slack content.
+14. Flexible scheduling system for automatic synchronization:
+    a. Configure custom schedule intervals (daily, hourly, by minute, or by second)
+    b. Set specific run times for daily schedules
+    c. Adjust the frequency of runs (e.g., every 1 day, every 2 hours, etc.)
+    d. Run the scheduler with `python sheduler.py`
+
+## Usage: ##
+1. Run manually:
+   ```
+   python main.py
+   ```
+
+2. Run with scheduler:
+   ```
+   python sheduler.py
+   ```
 

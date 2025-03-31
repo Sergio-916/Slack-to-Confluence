@@ -17,3 +17,8 @@ SPACE_KEY = "testspace"
 SLACK_CHANNELS = ["C08HPBUUNBD"]
 
 MODEL = "gpt-4o"
+
+# Schedule settings
+SCHEDULE_TIME = "03:00"  # Run time in HH:MM format
+SCHEDULE_INTERVAL = "day"  # Interval: "day", "hour", "minute", "second"
+SCHEDULE_UNIT = 1  # Number of interval units (e.g., every 1 day or every 2 hours)
