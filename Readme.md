@@ -62,13 +62,10 @@
     d. Run the scheduler with `python sheduler.py`
 
 ## Usage: ##
-1. Run manually:
-   ```
-   python main.py
-   ```
 
-2. Run with scheduler:
-   ```
-   python sheduler.py
-   ```
+   To run the application and start the scheduler (which will execute the sync based on the schedule configured in `config/config.py`):
+   `python main.py`
+   The script will then run continuously, checking the schedule and executing the synchronization task at the configured intervals. The first sync can be triggered immediately on startup by uncommenting the relevant line in `main.py`.
+   
+
 
